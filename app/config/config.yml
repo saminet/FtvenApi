@@ -99,14 +99,14 @@ fos_rest:
             json:
                 - application/json
                 - application/x-json
-                - application/vnd.app.categories+json
-                - application/vnd.app.categories+json;v=1.0
-                - application/vnd.app.categories+json;v=2.0
+                - application/vnd.app.articles+json
+                - application/vnd.app.articles+json;v=1.0
+                - application/vnd.app.articles+json;v=2.0
             xml:
                 - text/xml
-                - application/vnd.app.categories+xml
-                - application/vnd.app.categories+xml;v=1.0
-                - application/vnd.app.categories+xml;v=2.0
+                - application/vnd.app.articles+xml
+                - application/vnd.app.articles+xml;v=1.0
+                - application/vnd.app.articles+xml;v=2.0
         formats:
             json: true
             xml: true
@@ -128,7 +128,7 @@ fos_rest:
             - { path: '^/', priorities: [ 'html'], fallback_format: html }
 
 nelmio_api_doc:
-    name:                 'App API documentation'
+    name:                 'API Ftven documentation'
     sandbox:
         body_format:
             formats: [form, json, xml]
