@@ -1,0 +1,8 @@
+app_api:
+    resource: "@AppApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+nelmio_api_doc:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /blog-api/doc
