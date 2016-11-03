@@ -44,7 +44,7 @@ class Article
     /**
      * @var string
      * @Serializer\Expose
-     * @ORM\Column(name="leading", type="string", length=255)
+     * @ORM\Column(name="leading_", type="string", length=255)
      */
     
     private $leading;
