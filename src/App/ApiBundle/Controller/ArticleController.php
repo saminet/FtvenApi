@@ -79,5 +79,38 @@ class ArticleController extends FOSRestController
                 'Location' => $this->generateUrl('app_api_article', [ 'id' => $article->getId()]),
         ]);
     }
+    
+    /**
+     * @Rest\Delete(
+     *     path = "/{id}",
+     *     name = "app_api_delete_article",
+     *     requirements = {"id"="\d+"}
+     * )
+     * 
+     * @Rest\View(statusCode=204)
+     *
+     * @Doc\ApiDoc(
+     *      section="Articles",
+     *      description="Delete an existing article.",
+     *      statusCodes={
+     *          201="Returned if article has been successfully deleted",
+     *          400="Returned if article does not exist",
+     *          500="Returned if server error"
+     *      },
+     *      requirements={
+     *          {
+     *              "name"="id",
+     *              "dataType"="integer",
+     *              "requirement"="\d+",
+     *              "description"="The article unique identifier."
+     *          }
+     *      },
+     * )
+     */
+    public function deleteArticleAction(Article $article)
+    {
+        $this->get('app_core.article_manager')->remove($article);
 
+        return $this->view('', Response::HTTP_NO_CONTENT);
+    }
 }
