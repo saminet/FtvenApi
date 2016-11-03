@@ -17,9 +17,31 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        app_login:
-            pattern:  ^/login
+        api_login:
+            pattern:  ^/api/login
             stateless: true
             anonymous: true
             form_login:
                 provider: database_users
+                check_path: /api/login_check
+                require_previous_session: false
+                username_parameter: username
+                password_parameter: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+#        api:
+#            pattern:   ^/api
+#            stateless: true
+#            lexik_jwt:
+#                authorization_header:
+#                    enabled: true
+#                    prefix:  Bearer
+#                query_parameter:
+#                    enabled: true
+#                    name:    bearer
+            
+        
+#    access_control:
+#        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
