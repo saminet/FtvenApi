@@ -61,6 +61,7 @@ class Article
     /**
      * @var \Datetime
      * @Serializer\Expose
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="createdAt", type="datetime")
      */
     
