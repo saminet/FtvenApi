@@ -1,0 +1,9 @@
+During project installation; somme error problem could be revealed related 
+to some missing Php extention wich could missed in your System.
+To fix it, you have to run some commands to install the missed some php extentions:
+
+Install mbstring php extention : sudo apt-get install php7.0-mbstring
+
+Install dom extention : sudo apt-get install php-xml
+
+Install xml- RPC : sudo apt-get install php7.0-xmlrpc
